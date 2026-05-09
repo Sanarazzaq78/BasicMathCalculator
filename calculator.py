@@ -13,7 +13,7 @@ class Calculator:
 
     def calculate(self) -> None:
         """Calculate of calculator class."""
-        print("\n choose Operation:""1.addition\n"
+        print("\n choose Operation:" "1.addition\n"
                                        "2.subtraction\n"
                                        "3.multiplication\n"
                                        "4.division\n"
