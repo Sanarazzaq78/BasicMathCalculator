@@ -1,29 +1,33 @@
-class BasicCalculator:
-    def __init__(self,number1,number2):
+"""Calculator runing point file."""
+from operation import Operation
+
+
+
+class Calculator:
+    """Calculator class."""
+    def __init__(self,number1 : int, number2:int) -> None:
+        """Initialization calculator class."""
         self.number1=number1
         self.number2=number2
+        self.operation = Operation(number1, number2)
 
-
-class Calculator(BasicCalculator):
-
-    def Calculate(self,choice):
-        "some choice.."
-        if choice==1: return self.number1 +self.number2
-        elif choice == 2: return self.number1 - self.number2
-        elif choice == 3:   return self.number1 * self.number2
-        elif choice == 4:
-           if self.number2 != 0:return self.number1 / self.number2
-           else:
-                return "Cannot divide by zero"
-        elif choice == 5: return self.number1 % self.number2
+    def calculate(self) -> None:
+        """Calculate of calculator class."""
+        print("\n choose Operation:""1.addition\n"
+                                       "2.subtraction\n"
+                                       "3.multiplication\n"
+                                       "4.division\n"
+                                       "5.modulus\n")
+        choice = input("Enter choice (1/2/3/4/5): ")
+        if choice == "1":print("Result:",self.operation.add())
+        elif choice == "2":
+            print("Result:",self.operation.sub())
+        elif choice == "3":
+            print("Result:",self.operation.mul())
+        elif choice == "4":
+            print("Result:",self.operation.div())
+        elif choice == "5":
+            print("Result:",self.operation.modu())
         else:
-                return "Invalid choice"
-number1=int(input("enter first number:"))
-number2=int(input("enter second number:"))
+            print("Invalid choice")
 
-calc=Calculator(numer1,number2)
-" some calculator..."
-print("result,{(1.addition,2.subtraction,3.multiplication,4.division,5.modulus)}")
-choice=int(input("enter your choice.."))
-result=calc.Calculate(choice)
-print(result)
